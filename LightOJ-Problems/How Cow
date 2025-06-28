@@ -1,0 +1,26 @@
+LINK: https://lightoj.com/problem/how-cow
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t, m;
+    int x[2], y[2];
+    cin >> t;
+    for(int i = 1; i <= t; ++i){
+        cin >> x[0] >> y[0] >> x[1] >> y[1];
+        cin >> m;
+        cout << "Case " << i << ":" << endl;
+        for(int j = 0; j < m; ++j){
+            int c[m], d[m];
+            cin >> c[j] >> d[j];
+            if(c[j] > x[0] && c[j] < x[1] && d[j] > y[0] && d[j] < y[1]){
+                cout << "Yes" << endl;
+            } else {
+                cout << "No" << endl;
+            }
+        }
+    }
+
+    return 0;
+}
