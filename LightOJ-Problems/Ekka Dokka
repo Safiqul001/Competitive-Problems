@@ -1,0 +1,27 @@
+LINK: https://lightoj.com/problem/ekka-dokka
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    long long w;
+
+    cin >> t;
+    for(int i = 1; i <= t; ++i){
+        cin >> w;
+        bool found = false;
+        for(int j = 1; j < 63; ++j){
+            if (w % (1LL << j) == 0 && (w / (1LL << j)) % 2 != 0) {
+                cout << "Case " << i << ": " << (w / (1LL << j)) << " " << (1LL << j) << endl;
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            cout << "Case " << i << ": Impossible" << endl;
+        }
+    }
+
+    return 0;
+}
