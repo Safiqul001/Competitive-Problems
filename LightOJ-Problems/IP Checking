@@ -1,0 +1,60 @@
+LINK: https://lightoj.com/problem/ip-checking
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int binaryToDecimal(string bin) {
+    int value = 0;
+    for (char c : bin) {
+        value = value * 2 + (c - '0');
+    }
+    return value;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    cin.ignore();
+
+    for (int t = 1; t <= T; ++t) {
+        string decimalIP, binaryIP;
+        getline(cin, decimalIP);
+        getline(cin, binaryIP);
+
+        vector<int> decNums, binNums;
+
+        string num = "";
+        for (char c : decimalIP) {
+            if (c == '.') {
+                decNums.push_back(stoi(num));
+                num = "";
+            } else {
+                num += c;
+            }
+        }
+        decNums.push_back(stoi(num));
+
+        num = "";
+        for (char c : binaryIP) {
+            if (c == '.') {
+                binNums.push_back(binaryToDecimal(num));
+                num = "";
+            } else {
+                num += c;
+            }
+        }
+        binNums.push_back(binaryToDecimal(num));
+
+        bool same = true;
+        for (int i = 0; i < 4; ++i) {
+            if (decNums[i] != binNums[i]) {
+                same = false;
+                break;
+            }
+        }
+
+        cout << "Case " << t << ": " << (same ? "Yes" : "No") << endl;
+    }
+
+    return 0;
+}
