@@ -1,0 +1,24 @@
+Link: https://lightoj.com/problem/higher-math
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int Test_Case, First_Side, Secend_Side, Third_side,i = 1;
+    cin >> Test_Case;
+    while(Test_Case--){
+        cin >> First_Side >> Secend_Side >> Third_side;
+        if(First_Side*First_Side + Secend_Side*Secend_Side == Third_side*Third_side){
+            cout << "Case " << i << ": yes" << endl;
+        } else if(First_Side*First_Side + Third_side*Third_side == Secend_Side*Secend_Side){
+            cout << "Case " << i << ": yes" << endl;
+        } else if(Secend_Side*Secend_Side + Third_side*Third_side == First_Side*First_Side){
+            cout << "Case " << i << ": yes" << endl;
+        } else {
+            cout << "Case " << i << ": no" << endl;
+        }
+        ++i;
+    }
+
+    return 0;
+}
