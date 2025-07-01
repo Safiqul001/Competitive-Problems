@@ -1,0 +1,26 @@
+Link: https://lightoj.com/problem/division-by-3
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int Case, i = 1, cntTotal, cnt1, cnt2;
+    long a, b;
+    cin >> Case;
+    while(Case--){
+        cin >> a >> b;
+        if(a == b){
+            if(a % 3 == 0 || (a + 1)% 3 == 0) cntTotal = 1;
+            else cntTotal = 0;
+        } else {
+            cnt1 = b/3*2;
+            if((b+1)% 3 == 0) cnt1++;
+            cnt2 = a/3*2;
+            if((a)% 3 == 0) cnt2--;
+            cntTotal = cnt1 - cnt2;
+        }
+        cout << "Case " << i << ": " << cntTotal <<endl;
+        ++i;
+    }
+    return 0;
+}
