@@ -1,0 +1,23 @@
+Link: https://lightoj.com/problem/lift
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int Test_Case, My_Position, Lift_Position, Difference, Duration, i = 1;
+    cin >> Test_Case;
+    while(Test_Case--){
+        cin >> My_Position >> Lift_Position;
+        if(My_Position > Lift_Position){
+            Difference = My_Position - Lift_Position;
+        } else {
+            Difference = Lift_Position - My_Position;
+        }
+
+        Duration = (4*Difference) + (4*My_Position) + 19;
+        cout << "Case " << i << ": " << Duration << endl;
+        ++i;
+    }
+
+    return 0;
+}
