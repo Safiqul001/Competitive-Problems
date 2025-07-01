@@ -1,0 +1,24 @@
+Link: https://codeforces.com/problemset/problem/705/A
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int layer;
+    cin >> layer;
+    for(int i = 0; i < layer; ++i){
+        if(i % 2 == 0){
+            cout << "I hate ";
+        } else {
+            cout << "I love ";
+        }
+        if(i != layer - 1){
+            cout << "that ";
+        } else {
+            cout << "it";
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
