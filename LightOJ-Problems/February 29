@@ -1,0 +1,60 @@
+Link: https://lightoj.com/problem/february-29
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int T;
+    cin >> T;
+    cin.ignore();
+
+    map<string, int> month_map = {
+        {"January", 1}, {"February", 2}, {"March", 3}, {"April", 4},
+        {"May", 5}, {"June", 6}, {"July", 7}, {"August", 8},
+        {"September", 9}, {"October", 10}, {"November", 11}, {"December", 12}};
+
+    for(int cs = 1; cs <= T; ++cs){
+        string date1, date2;
+        getline(cin, date1);
+        getline(cin, date2);
+
+        int pos1 = date1.find(' ');
+        int pos2 = date1.find(',');
+        string m1_str = date1.substr(0, pos1);
+        int d1 = stoi(date1.substr(pos1 + 1, pos2 - pos1 - 1));
+        int y1 = stoi(date1.substr(pos2 + 2));
+        int m1 = month_map[m1_str];
+
+        pos1 = date2.find(' ');
+        pos2 = date2.find(',');
+        string m2_str = date2.substr(0, pos1);
+        int d2 = stoi(date2.substr(pos1 + 1, pos2 - pos1 - 1));
+        int y2 = stoi(date2.substr(pos2 + 2));
+        int m2 = month_map[m2_str];
+
+        if(m1 > 2){
+            y1++;
+        } else if (m1 == 2 && d1 > 29) {
+            y1++;
+        }
+
+        if(m2 < 2){
+            y2--;
+        } else if(m2 == 2 && d2 < 29){
+            y2--;
+        }
+
+        auto count_leap = [](int year){
+            return year / 4 - year / 100 + year / 400;
+        };
+
+        int result = 0;
+        if(y1 <= y2){
+            result = count_leap(y2) - count_leap(y1 - 1);
+        }
+
+        cout << "Case " << cs << ": " << result << "\n";
+    }
+
+    return 0;
+}
