@@ -1,0 +1,50 @@
+Link: https://judge.beecrowd.com/en/problems/view/1180
+
+#include <iostream>
+
+int main() {
+    int N, position = 0, smallest = 2147483647;
+    std::cin >> N;
+
+    int arr[N];
+    for(int i = 0; i < N; ++i){
+        std::cin >> arr[i];
+        if(smallest > arr[i]){
+            smallest = arr[i];
+            position = i;
+        }
+    }
+    std::cout << "Menor valor: " << smallest << "\n" << "Posicao: " << position << "\n";
+
+    return 0;
+}
+
+or
+
+#include <iostream>
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    int X[N];
+
+    for (int i = 0; i < N; ++i) {
+        std::cin >> X[i];
+    }
+
+    int smallestValue = X[0];
+    int position = 0;
+
+    for (int i = 1; i < N; ++i) {
+        if (X[i] < smallestValue) {
+            smallestValue = X[i];
+            position = i;
+        }
+    }
+
+    std::cout << "Menor valor: " << smallestValue << "\n";
+    std::cout << "Posicao: " << position << "\n";
+
+    return 0;
+}
