@@ -1,0 +1,33 @@
+Link: https://judge.beecrowd.com/en/problems/view/1181
+
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    int L;
+    char T;
+    double M[12][12];
+
+    std::cin >> L;
+
+    std::cin >> T;
+
+    for (int i = 0; i < 12; ++i) {
+        for (int j = 0; j < 12; ++j) {
+            std::cin >> M[i][j];
+        }
+    }
+
+    double sum = 0.0;
+    for (int j = 0; j < 12; ++j) {
+        sum += M[L][j];
+    }
+
+    if (T == 'S') {
+        std::cout << std::fixed << std::setprecision(1) << sum << "\n";
+    } else if (T == 'M') {
+        std::cout << std::fixed << std::setprecision(1) << (sum / 12.0) << "\n";
+    }
+
+    return 0;
+}
