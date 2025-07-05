@@ -1,0 +1,68 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3399
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool princeAlwaysWins(vector<int> princess, vector<int> prince){
+    sort(princess.begin(), princess.end());
+
+    sort(prince.begin(), prince.end());
+    do{
+        vector<bool> used(3, false);
+        int wins = 0;
+
+        for (int i = 0; i < 3; ++i) {
+            int prince_card = prince[i];
+            int beat_index = -1;
+
+            for(int j = 0; j < 3; ++j){
+                if(!used[j] && princess[j] > prince_card){
+                    beat_index = j;
+                    break;
+                }
+            }
+
+            if(beat_index == -1){
+                wins++;
+            } else {
+                used[beat_index] = true;
+            }
+        }
+
+        if(wins < 2) return false;
+    } while (next_permutation(prince.begin(), prince.end()));
+
+    return true;
+}
+
+int main(){
+    while (true){
+        vector<int> princess(3), prince(2);
+        cin >> princess[0] >> princess[1] >> princess[2] >> prince[0] >> prince[1];
+
+        if (princess[0] == 0 && princess[1] == 0 && princess[2] == 0 &&
+            prince[0] == 0 && prince[1] == 0)
+            break;
+
+        set<int> used_cards;
+        for (int c : princess) used_cards.insert(c);
+        for (int c : prince) used_cards.insert(c);
+
+        int result = -1;
+        for (int c = 1; c <= 52; ++c) {
+            if (used_cards.count(c)) continue;
+
+            vector<int> prince_hand = prince;
+            prince_hand.push_back(c);
+
+            if(princeAlwaysWins(princess, prince_hand)){
+                result = c;
+                break;
+            }
+        }
+
+        cout << result << endl;
+    }
+
+    return 0;
+}
