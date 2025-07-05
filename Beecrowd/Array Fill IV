@@ -1,0 +1,41 @@
+Link: https://judge.beecrowd.com/en/problems/view/1179
+
+#include <iostream>
+
+int main() {
+    int par[5], impar[5];
+    int parIndex = 0, imparIndex = 0;
+
+    for (int i = 0; i < 15; i++) {
+        int num;
+        std::cin >> num;
+
+        if (num % 2 == 0) {
+            par[parIndex++] = num;
+            if (parIndex == 5) {
+                for (int j = 0; j < 5; j++) {
+                    std::cout << "par[" << j << "] = " << par[j] << "\n";
+                }
+                parIndex = 0;
+            }
+        } else {
+            impar[imparIndex++] = num;
+            if (imparIndex == 5) {
+                for (int j = 0; j < 5; j++) {
+                    std::cout << "impar[" << j << "] = " << impar[j] << "\n";
+                }
+                imparIndex = 0;
+            }
+        }
+    }
+
+    for (int i = 0; i < imparIndex; i++) {
+        std::cout << "impar[" << i << "] = " << impar[i] << "\n";
+    }
+
+    for (int i = 0; i < parIndex; i++) {
+        std::cout << "par[" << i << "] = " << par[i] << "\n";
+    }
+
+    return 0;
+}
