@@ -1,0 +1,14 @@
+Link: https://judge.beecrowd.com/en/problems/view/1177
+
+#include <iostream>
+
+int main() {
+    int T;
+    std::cin >> T;
+
+   for(int i = 0; i < 1000; i++){
+       std::cout << "N[" << i << "] = " << i%T << "\n";
+   }
+
+    return 0;
+}
