@@ -1,0 +1,28 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3431
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int N, i = 1;
+
+    while(cin >> N && N != 0){
+        int reasons = 0;
+        int treats = 0;
+        int event;
+
+        for(int i = 0; i < N; ++i){
+            cin >> event;
+            if(event == 0)
+                treats++;
+            else
+                reasons++;
+        }
+
+        int balance = reasons - treats;
+        cout << "Case " << i << ": " << balance << endl;
+        i++;
+    }
+
+    return 0;
+}
