@@ -1,0 +1,33 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1491
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int calculateDegrees(int a, int b, int c, int d){
+    int total_degrees = 0;
+
+    total_degrees += 720;
+
+    total_degrees += ((a - b + 40) % 40) * 9;
+
+    total_degrees += 360;
+
+    total_degrees += ((c - b + 40) % 40) * 9;
+
+    total_degrees += ((c - d + 40) % 40) * 9;
+
+    return total_degrees;
+}
+
+int main() {
+    int a, b, c, d;
+
+    while(cin >> a >> b >> c >> d){
+        if(a == 0 && b == 0 && c == 0 && d == 0)
+            break;
+
+        cout << calculateDegrees(a, b, c, d) << endl;
+    }
+
+    return 0;
+}
