@@ -1,26 +1,27 @@
 Link: https://judge.beecrowd.com/en/problems/view/1160
 
-#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main(){
     int T;
-    scanf("%d", &T);
+    cin >> T;
     while(T--){
         int PA, PB;
         double G1, G2;
-        scanf("%d %d %lf %lf", &PA, &PB, &G1, &G2);
+        cin >> PA >> PB >>  G1 >> G2;
         int years = 0;
         while (PA <= PB){
             PA += (int)(PA * (G1 / 100.0));
             PB += (int)(PB * (G2 / 100.0));
             years++;
             if(years > 100){
-                printf("Mais de 1 seculo.\n");
+                cout << "Mais de 1 seculo.\n";
                 break;
             }
         }
         if(years <= 100){
-            printf("%d anos.\n", years);
+            cout << years << "anos.\n";
         }
     }
     return 0;
