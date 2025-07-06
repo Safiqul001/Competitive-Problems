@@ -1,0 +1,55 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4023
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    for(int i = 0; i < t; i++){
+        double L;
+        cin >> L;
+
+        double pi = acos(-1);
+        double radius = L / 5.0;
+        double width = (3.0 * L) / 5.0;
+
+        double red_area = pi * radius * radius;
+        double green_area = L * width - red_area;
+
+        cout << fixed << setprecision(2);
+        cout << red_area << " " << green_area << endl;
+    }
+
+    return 0;
+}
+
+or
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+
+    const double pi = acos(-1);
+
+    while(t--){
+        double L;
+        cin >> L;
+
+        double radius = L / 5.0;
+        double width = (3.0 * L) / 5.0;
+
+        double red_area = pi * radius * radius;
+        double green_area = L * width - red_area;
+
+        cout << fixed << setprecision(2) << red_area << " " << green_area << "\n";
+    }
+
+    return 0;
+}
