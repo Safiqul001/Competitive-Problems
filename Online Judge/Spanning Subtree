@@ -1,0 +1,15 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2644
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int k, i = 1;
+    while(cin >> k){
+        if(k == 0) break;
+        cout << "Case " << i << ": " << k/2 << endl;
+        i++;
+    }
+
+    return 0;
+}
