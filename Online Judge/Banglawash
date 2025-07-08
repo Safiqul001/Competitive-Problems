@@ -1,0 +1,45 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4438
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+
+    for(int test_case = 1; test_case <= t; test_case++){
+        int n;
+        cin >> n;
+
+        string result;
+        cin >> result;
+
+        int b = 0, w = 0, t = 0, a = 0;
+
+        for(char ch : result){
+            if(ch == 'B')  b++;
+            else if(ch == 'W')  w++;
+            else if(ch == 'T')  t++;
+            else if(ch == 'A')  a++;
+        }
+        int score = b + w + t;
+
+        cout << "Case " << test_case << ": ";
+
+        if(score == 0){
+            cout << "ABANDONED" << endl;
+        } else if(score == b) {
+            cout << "BANGLAWASH" << endl;
+        } else if(score == w) {
+            cout << "WHITEWASH" << endl;
+        } else if(b == w) {
+            cout << "DRAW " << b << " " << t << endl;
+        } else if(b > w) {
+            cout << "BANGLADESH " << b << " - " << w << endl;
+        } else if(b < w) {
+            cout << "WWW " << w << " - " << b << endl;
+        }
+    }
+
+    return 0;
+}
