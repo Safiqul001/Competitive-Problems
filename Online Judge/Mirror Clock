@@ -1,0 +1,31 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2697
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+
+    while(t--){
+        int h, m;
+        char ch;
+        cin >> h >> ch >> m;
+
+        int total_minutes = h % 12 * 60 + m;
+
+        int real_minutes = (720 - total_minutes);
+
+        int H = real_minutes / 60;
+        int M = real_minutes % 60;
+
+        if(H == 0){
+            H = 12;
+        }
+
+        cout << setfill('0') << setw(2) << H << ":"
+             << setfill('0') << setw(2) << M << endl;
+    }
+
+    return 0;
+}
