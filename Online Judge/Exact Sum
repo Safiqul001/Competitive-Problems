@@ -1,0 +1,42 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1998
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    while(cin >> n){
+        vector<int> prices(n);
+        for(int i = 0; i < n; ++i){
+            cin >> prices[i];
+        }
+
+        int m;
+        cin >> m;
+
+        sort(prices.begin(), prices.end());
+
+        int left = 0, right = n - 1;
+        int best_i = 0, best_j = 0;
+
+        while(left < right){
+            int sum = prices[left] + prices[right];
+
+            if(sum == m){
+                best_i = prices[left];
+                best_j = prices[right];
+                left++;
+                right--;
+            } else if(sum < m){
+                left++;
+            } else {
+                right--;
+            }
+        }
+
+        cout << "Peter should buy books whose prices are " << best_i << " and " << best_j << "." << endl;
+        cout << endl;
+    }
+
+    return 0;
+}
