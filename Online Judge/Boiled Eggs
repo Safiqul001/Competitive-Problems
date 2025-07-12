@@ -1,0 +1,35 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3051
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int T;
+    cin >> T;
+
+    for(int caseNum = 1; caseNum <= T; ++caseNum){
+        int n, P, Q;
+        cin >> n >> P >> Q;
+
+        int eggs[31];
+        for(int i = 0; i < n; ++i){
+            cin >> eggs[i];
+        }
+
+        int count = 0;
+        int totalWeight = 0;
+
+        for(int i = 0; i < n; ++i){
+            if(count < P && totalWeight + eggs[i] <= Q){
+                totalWeight += eggs[i];
+                count++;
+            } else {
+                break;
+            }
+        }
+
+        cout << "Case " << caseNum << ": " << count << endl;
+    }
+
+    return 0;
+}
