@@ -1,0 +1,33 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4349
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int T;
+    cin >> T;
+    string line;
+    getline(cin, line);
+
+    while(T--){
+        string ingredients;
+        getline(cin, ingredients);
+
+        int freq[26] = {0};
+        for(char ch : ingredients){
+            freq[ch - 'A']++;
+        }
+
+        int count_M = freq['M' - 'A'] / 1;
+        int count_A = freq['A' - 'A'] / 3;
+        int count_R = freq['R' - 'A'] / 2;
+        int count_G = freq['G' - 'A'] / 1;
+        int count_I = freq['I' - 'A'] / 1;
+        int count_T = freq['T' - 'A'] / 1;
+
+        int pizzas = min({count_M, count_A, count_R, count_G, count_I, count_T});
+        cout << pizzas << endl;
+    }
+
+    return 0;
+}
