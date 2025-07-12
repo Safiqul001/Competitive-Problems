@@ -1,0 +1,17 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2307
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int g(int n) {
+    if (n == 0) return 0;
+    return 1 + (n - 1) % 9;
+}
+
+int main(){
+    int n;
+    while(cin >> n && n != 0){
+        cout << g(n) << endl;
+    }
+    return 0;
+}
