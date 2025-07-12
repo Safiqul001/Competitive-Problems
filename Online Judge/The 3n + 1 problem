@@ -1,0 +1,34 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=36
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int Length(int n){
+    int count = 1;
+    while (n != 1) {
+        if (n % 2 == 0)
+            n /= 2;
+        else
+            n = 3 * n + 1;
+        count++;
+    }
+    return count;
+}
+
+int main(){
+    int i, j;
+    while(cin >> i >> j){
+        int low = min(i, j);
+        int high = max(i, j);
+        int maxCycle = 0;
+
+        for(int k = low; k <= high; k++){
+            int length = Length(k);
+            if(length > maxCycle)
+                maxCycle = length;
+        }
+
+        cout << i << " " << j << " " << maxCycle << endl;
+    }
+    return 0;
+}
