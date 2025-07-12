@@ -1,0 +1,45 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2160
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int T;
+    cin >> T;
+
+    for(int caseNum = 1; caseNum <= T; ++caseNum){
+        int cd, cm, cy;
+        int bd, bm, by;
+        char ch1, ch2;
+
+        cin >> cd >> ch1 >> cm >> ch2 >> cy;
+
+        cin >> bd >> ch1 >> bm >> ch2 >> by;
+
+        cout << "Case #" << caseNum << ": ";
+
+        bool future = false;
+        if (by > cy) future = true;
+        else if (by == cy && bm > cm) future = true;
+        else if (by == cy && bm == cm && bd > cd) future = true;
+
+        if(future){
+            cout << "Invalid birth date" << endl;
+            continue;
+        }
+
+        int age = cy - by;
+        if(cm < bm || (cm == bm && cd < bd)){
+            age--;
+        }
+
+        if(age > 130){
+            cout << "Check birth date" << endl;
+        } else {
+            cout << age << endl;
+        }
+    }
+
+    return 0;
+}
+
