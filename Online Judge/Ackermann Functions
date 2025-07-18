@@ -1,0 +1,55 @@
+Link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=307
+
+#include <bits/stdc++.h>
+using namespace std;
+
+map<long long, int> cache;
+
+int sequenceLength(long long n){
+    long long original = n;
+    int cnt = 0;
+    while(n != 1){
+        if(cache.count(n)){
+            cnt += cache[n];
+            break;
+        }
+        if(n % 2 == 0)
+            n /= 2;
+        else
+            n = 3 * n + 1;
+        cnt++;
+    }
+    cache[original] = cnt;
+    return cnt;
+}
+
+int main(){
+    long L, H;
+    while(cin >> L >> H){
+        if(L == 0 && H == 0){
+            break;
+        }
+
+        long long low = min(L, H);
+        long long high = max(L, H);
+        int maxLength = 0;
+        long long valueWithMax = low;
+
+        for(long long i = low; i <= high; ++i){
+            int length = sequenceLength(i);
+            if(length > maxLength){
+                maxLength = length;
+                valueWithMax = i;
+            }
+        }
+        if(low == 1 && high == 1){
+                maxLength = 3;
+                valueWithMax = 1;
+            }
+
+        cout << "Between " << low << " and " << high << ", " << valueWithMax 
+              << " generates the longest sequence of " << maxLength << " values." << endl;
+    }
+
+    return 0;
+}
