@@ -8,6 +8,28 @@ int main(){
     cin >> n;
     vector<pair<int,int>> vec;
 
+    for(int i = 1; i <= n; i++){
+        cin >> ele;
+        vec.push_back({ele, i});
+    }
+
+    sort(vec.begin(), vec.end(), greater<pair<int,int>>());
+
+    cout << vec[0].second << " " << vec[1].first << endl;
+
+    return 0;
+}
+
+or
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n, ele;
+    cin >> n;
+    vector<pair<int,int>> vec;
+
     int maxi = INT_MIN;
     int max_pos = -1;
 
