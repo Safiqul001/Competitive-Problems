@@ -1,0 +1,55 @@
+Link: https://codeforces.com/problemset/problem/975/A
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    string word;
+    set<string> root;
+
+    for(int i = 0; i < n; i++){
+        cin >> word;
+
+        set<char> letters(word.begin(), word.end());
+
+        string temp(letters.begin(), letters.end());
+
+        root.insert(temp);
+    }
+
+    cout << root.size() << endl;
+
+    return 0;
+}
+
+or
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+
+    set<string> uniqueRoots;
+
+    for(int i = 0; i < n; i++){
+        string word;
+        cin >> word;
+
+        set<char> charSet(word.begin(), word.end());
+
+        string root = "";
+        for(char c : charSet){
+            root += c;
+        }
+
+        uniqueRoots.insert(root);
+    }
+
+    cout << uniqueRoots.size() << endl;
+
+    return 0;
+}
