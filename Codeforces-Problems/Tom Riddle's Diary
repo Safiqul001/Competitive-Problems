@@ -1,0 +1,28 @@
+Link: https://codeforces.com/contest/855/problem/A
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int n;
+    set<string> person;
+
+    cin >> n;
+    cin.ignore();
+
+    int r = 1;
+    for(int i = 0; i < n; i++){
+        string names;
+        cin >> names;
+        person.insert(names);
+        if(r == person.size()){
+            cout << "No" << endl;
+            r++;
+        } else {
+            cout << "Yes" << endl;
+        }
+    }
+
+    return 0;
+}
