@@ -1,0 +1,40 @@
+Link: https://www.hackerrank.com/challenges/jesse-and-cookies/problem
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n, k;
+    cin >> n >> k;
+
+    multiset<int> s;
+    for(int i = 0; i < n; i++){
+        int val;
+        cin >> val;
+        s.insert(val);
+    }
+
+    int operations = 0;
+
+    while(s.size() >= 2 && *s.begin() < k){
+        auto it1 = s.begin();
+        int first = *it1;
+        s.erase(it1);
+
+        auto it2 = s.begin();
+        int second = *it2;
+        s.erase(it2);
+
+        int new_cookie = first + 2 * second;
+        s.insert(new_cookie);
+        operations++;
+    }
+
+    if(!s.empty() && *s.begin() >= k){
+        cout << operations << "\n";
+    } else {
+        cout << -1 << "\n";
+    }
+
+    return 0;
+}
