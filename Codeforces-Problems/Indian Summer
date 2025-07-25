@@ -1,0 +1,22 @@
+Link: https://codeforces.com/contest/44/problem/A
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+    int n;
+    set< pair <string, string>> p;
+
+    cin >> n;
+    cin.ignore();
+
+    for(int i = 0; i < n; i++){
+        string p1, p2;
+        cin >> p1 >> p2;
+        p.insert({p1, p2});
+    }
+    cout << p.size() << endl;
+
+    return 0;
+}
