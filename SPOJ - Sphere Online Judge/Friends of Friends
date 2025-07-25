@@ -1,0 +1,32 @@
+Link: https://www.spoj.com/problems/FACEFRND/
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+ 
+    int n;
+    set<int> friends;
+    set<int> matureFriends;
+ 
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        int ID;
+        cin >> ID;
+        friends.insert(ID);
+ 
+        int num;
+        cin >> num;
+        for(int j = 0; j < num; j++){
+            int friendID;
+            cin >> friendID;
+            matureFriends.insert(friendID);
+        }
+    }
+    for(int val : friends){
+        matureFriends.erase(val);
+    }
+    cout << matureFriends.size() << endl;
+ 
+    return 0;
+}
