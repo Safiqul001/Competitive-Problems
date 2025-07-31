@@ -1,0 +1,24 @@
+Link: https://codeforces.com/contest/112/problem/A
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string strg1, strg2;
+    cin >> strg1 >> strg2;
+
+    for(int i = 0; i < strg1.size(); ++i){
+        strg1[i] = tolower(strg1[i]);
+        strg2[i] = tolower(strg2[i]);
+    }
+
+    if(strg1 < strg2){
+        cout << "-1\n";
+    } else if (strg1 > strg2){
+        cout << "1\n";
+    } else {
+        cout << "0\n";
+    }
+
+    return 0;
+}
